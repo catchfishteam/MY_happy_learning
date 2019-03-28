@@ -1,4 +1,4 @@
-package com.lxm;
+package com.fangwh;
 
 public class Test {
 
