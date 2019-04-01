@@ -110,3 +110,11 @@ docker rmi [options "o">] <image> "o">[image...] 或者docker rmi image_id
 docker inspect : 获取容器/镜像的元数据。
 
 docker inspect image_id
+
+
+
+docker-compose
+# 启动所有服务
+$ docker-compose up
+# 关闭所有服务
+$ docker-compose stop
