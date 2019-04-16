@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shenzk.web.dao.UserDao">
+
+    <select id="getUserById" resultType="com.shenzk.web.domain.User" parameterType="java.lang.Integer">
+        select
+            id,
+            name,
+            finishNum,
+            lastTime
+        from user
+        where id = #{id}
+    </select>
+
+    <select id="getUserList" resultType="com.shenzk.web.domain.User">
+        select
+            id, name, finishNum, lastTime
+        from
+            user
+        order by
+            finishNum desc, lastTime asc
+    </select>
+
+    <update id="updateUser" parameterType="com.shenzk.web.domain.User">
+        update user
+        set
+        <if test="user.finishNum != null">
+            finishNum = #{user.finishNum},
+        </if>
+        <if test="user.lastTime != null">
+            lastTime = #{user.lastTime}
+        </if>
+        where name = #{user.name}
+    </update>
+
+    <insert id="insertUser" parameterType="com.shenzk.web.domain.User">
+        insert into
+            user(name, finishNum, lastTime)
+            values(
+                #{user.name},
+                #{user.finishNum},
+                #{user.lastTime}
+            )
+    </insert>
+
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete user
+        where id = #{id}
+    </delete>
+</mapper>

@@ -1,0 +1,46 @@
+-- 创建用户表
+create table User(
+id int auto_increment,
+name varchar(255),
+finishNum int,
+lastTime varchar(255),
+primary key(id)
+);
+
+insert into
+user(name, finishNum, lastTime)
+values("第10组", 4, "2019-04-07 22:48:20");
+
+update user set name="第3组" where id=3;
+
+
+-- 创建提交表
+create table question(
+id int auto_increment,
+question varchar(255),
+successNum int,
+submitNum int,
+primary key(id)
+);
+
+insert into
+question(question, successNum, submitNum)
+values("question5", 4, 9);
+
+update question
+set successNum = successNum+1, submitNum = submitNum+1
+where question="question1";
+
+update question
+set question="Add Binary"
+where id="5";
+
+------------------
+
+update user
+set finishNum = 0 , lastTime = '0'
+where name="第5组";
+
+update question
+set successNum=0, submitNum=0
+where question="K-Similar Strings";
